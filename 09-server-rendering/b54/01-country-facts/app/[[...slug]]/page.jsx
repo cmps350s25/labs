@@ -1,6 +1,8 @@
+// import React from "react";
 import Link from "next/link";
 
 export default async function Facts({ params }) {
+  // alert("hello");
   const { slug } = await params;
   let data = [];
 
@@ -36,14 +38,14 @@ export default async function Facts({ params }) {
 
   if (slug?.length > 0) {
     region = decodeURI(slug[0]);
-  }
 
-  if (slug?.length > 1) {
-    subregion = decodeURI(slug[1]);
-  }
+    if (slug?.length > 1) {
+      subregion = decodeURI(slug[1]);
 
-  if (slug?.length > 2) {
-    country = decodeURI(slug[2]);
+      if (slug?.length > 2) {
+        country = decodeURI(slug[2]);
+      }
+    }
   }
 
   console.log(region, subregion, country);
@@ -117,11 +119,15 @@ export default async function Facts({ params }) {
   );
 }
 
-export async function generateStaticParams() {
-  // const posts = await fetch("https://.../posts").then((res) => res.json());
+// export async function generateStaticParams() {
+//   // const posts = await fetch("https://.../posts").then((res) => res.json());
 
-  // return posts.map((post) => ({
-  //   slug: post.slug,
-  // }));
-  return [{ slug: [] }];
-}
+//   // return posts.map((post) => ({
+//   //   slug: post.slug,
+//   // }));
+//   return [
+//     { slug: [] },
+//     { slug: ["Africa"] },
+//     { slug: ["Africa", "Eastern Africa"] },
+//   ];
+// }

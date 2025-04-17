@@ -1,3 +1,4 @@
+// import React from "react";
 import Link from "next/link";
 
 export default async function Page({ params }) {
@@ -15,6 +16,8 @@ export default async function Page({ params }) {
       }
     }
   }
+
+  // [region, subregion, country] = slug;
 
   const resource = "http://localhost:3000/v3.1/all.json";
   // const resource = "https://restcountries.com/v3.1/all";
